@@ -6,7 +6,7 @@ let playerScore = 0,
 
 // Generate computer turn
 computerPlay = () => {
-    num = Math.floor(Math.random() * 2);
+    num = Math.floor(Math.random() * 3);
     options = ["rock", "paper", "scissors"];
     computerSelection = options[num];
     return computerSelection  // Return stores the the value of computerSelection to the caller function. Meaning if we call computerPlay later we get this value.
@@ -19,30 +19,36 @@ playRound = (playerSelection, computerSelection) => {
     computerSelection = computerPlay().toLowerCase();
 
     if (playerSelection === computerSelection) {
+        console.log(`Computer plays: ${computerSelection}`);
         console.log(`It's a tie ! The current score is: Player: ${playerScore} computer: ${computerScore}`)
     } else if (playerSelection === "rock") {
         if (computerSelection === "scissors") {
             playerScore++
+            console.log(`Computer plays: ${computerSelection}`);
             console.log(`You win ! Rock beats Scissors. The current score is: Player: ${playerScore} computer: ${computerScore}`);
         } else if (computerSelection === "paper") {
             computerScore++
+            console.log(`Computer plays: ${computerSelection}`);
             console.log(`You lose ! Paper Beats Rock. The current score is: Player: ${playerScore} computer: ${computerScore}`);
         }; 
     } else if (playerSelection === "scissors") {
         if (computerSelection === "paper") {
             playerScore++
+            console.log(`Computer plays: ${computerSelection}`);
             console.log(`You win ! Scissors beats Paper. The current score is: Player: ${playerScore} computer: ${computerScore}`);
         } else if (computerSelection === "rock") {
             computerScore++
+            console.log(`Computer plays: ${computerSelection}`);
             console.log(`You lose ! Rock beats Scissors. The current score is: Player: ${playerScore} computer: ${computerScore}`);
         };
-    } else (playerSelection === "paper") 
-    {
+    } else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
             playerScore++
+            console.log(`Computer plays: ${computerSelection}`);
             console.log(`You win ! paper beats Rock. The current score is: Player: ${playerScore} computer: ${computerScore}`);
         } else if (computerSelection === "scissors") {
             computerScore++
+            console.log(`Computer plays: ${computerSelection}`);
             console.log(`You lose ! Scissors beats Paper. The current score is: Player: ${playerScore} computer: ${computerScore}`);
         };
     };    
@@ -58,11 +64,11 @@ game = () => {
     scores = `Player = ${playerScore}, Computer = ${computerScore}.`
 
     if (playerScore == computerScore) {
-        console.log(`How on earth did this happen, this should be impossible !`)
+        alert(`GAME OVER. It was a tie, the ending score was ${scores}`)
     } else if (playerScore > computerScore) {
-        console.log(`GAME OVER. You are the winner ! The ending score was ${scores}`)
+        alert(`GAME OVER. You are the winner ! The ending score was ${scores}`)
     } else if (computerScore > playerScore) {
-        console.log(`GAME OVER. You lost ! The ending score was ${scores}`)
+        alert(`GAME OVER. You lost ! The ending score was ${scores}`)
     }
 }
 
