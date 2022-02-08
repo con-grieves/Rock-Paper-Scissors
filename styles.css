@@ -1,0 +1,42 @@
+p {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.score_div {
+    margin-top: 5rem;
+}
+
+.btn {
+    margin: 2.5em;
+    width: 20em;
+    height: 7.5em;
+    font-size: 1rem;
+    border-radius: 0.5em;
+}
+
+.score {
+    border: 1.5px solid grey;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+
