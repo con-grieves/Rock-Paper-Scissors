@@ -1,8 +1,11 @@
 // Declare global scope variables
+if document.cookie !=null{
+  let x = document.cookie;}
+else{
 let playerScore = 0,
   computerScore = 0,
-  gamePlaying,
-  i = 0,
+  gamePlaying,}
+let i = 0,
   results = document.querySelector(".displaySection");
 
 // Generate computer turn
@@ -13,6 +16,11 @@ computerPlay = () => {
   return computerSelection; // Return stores the the value of computerSelection to the caller function. Meaning if we call computerPlay later we get this value.
 };
 
+//Cookies Function
+function cookieUpdate(playerScore, computerScore) {
+  document.cookie = "cplayerScore = $playerScore, ccomputerScore = $computerScore"; 
+  return null;   // The function updates the score cookies
+}
 // Function to play a single round and compare selections to determine a winner for the round
 // Bonus feature: add rules to change the color of the button based on ruleset: If a tie, button goes yellow, if not it goes green for player selection and red for computer selection.
 
@@ -87,6 +95,7 @@ playRound = (playerSelection, computerSelection) => {
       );
     }
   }
+  cookieUpdate(playerScore, computerScore)
 };
 
 // Function to play 5 rounds, add up scores and display the winner at the end.
