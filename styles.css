@@ -20,6 +20,10 @@ h2 {
     background-color: red;
 }
 
+.yellow {
+    background-color: yellow;
+}
+
 .score_div {
     margin-top: 5rem;
 }
