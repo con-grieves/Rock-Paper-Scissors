@@ -116,7 +116,7 @@ const rock = document.querySelector(".btn_rock");
 const paper = document.querySelector(".btn_paper");
 const scissors = document.querySelector(".btn_scissors");
 
-// Event listeners
+// Event listeners and buttons
 
 rock.addEventListener("click", () => {
   choice = rock;
