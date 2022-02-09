@@ -10,11 +10,13 @@ computerPlay = () => {
   num = Math.floor(Math.random() * 3);
   options = ["rock", "paper", "scissors"];
   computerSelection = options[num];
-  return computerSelection; // Return stores the the value of computerSelection to the caller function. Meaning if we call computerPlay later we get this value.
+  return computerSelection;
 };
 
 // Function to play a single round and compare selections to determine a winner for the round
-// Bonus feature: add rules to change the color of the button based on ruleset: If a tie, button goes yellow, if not it goes green for player selection and red for computer selection.
+// Bonus feature: added rules to change the color of the button based on ruleset: If a tie, button goes yellow, if not it goes green for player selection and red for computer selection.
+
+// Next thing that needs worked on: changing console.logs over to DOM methods.
 
 playRound = (playerSelection, computerSelection) => {
   playerSelection = playerSelection.toLowerCase();
@@ -114,25 +116,17 @@ const rock = document.querySelector(".btn_rock");
 const paper = document.querySelector(".btn_paper");
 const scissors = document.querySelector(".btn_scissors");
 
-// Event listeners to toggle the background color of the buttons and reset them after a certain time aswell as run the playRound function
+// Event listeners
 
 rock.addEventListener("click", () => {
   choice = rock;
   playRound("Rock");
-  // if (playerSelection != computerSelection) {
-  //     rock.classList.toggle('green');
-  //     setTimeout(() => rock.classList.toggle('green'), 1000)
-  // };
 });
 paper.addEventListener("click", () => {
   choice = paper;
   playRound("Paper");
-  // paper.classList.toggle('green');
-  // setTimeout(() => paper.classList.toggle('green'), 1000)
 });
 scissors.addEventListener("click", () => {
   choice = scissors;
   playRound("Scissors");
-  // scissors.classList.toggle('green');
-  // setTimeout(() => scissors.classList.toggle('green'), 1000)
 });
