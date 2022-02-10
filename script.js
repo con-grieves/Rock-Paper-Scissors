@@ -15,6 +15,9 @@ else
   cookieUpdate("computerScore", computerScore);
 }
 
+//Set Score
+document.getElementById("playerScore").innerHTML = playerScore;
+document.getElementById("computerScore").innerHTML = computerScore;
 
 // Generate computer turn
 computerPlay = () => {
@@ -127,6 +130,8 @@ playRound = (playerSelection, computerSelection) => {
   }
   cookieUpdate("playerScore", playerScore);
   cookieUpdate("computerScore", computerScore);
+  document.getElementById("playerScore").innerHTML = playerScore;
+  document.getElementById("computerScore").innerHTML = computerScore;
  //console.log(document.cookie);
 };
 
