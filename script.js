@@ -5,6 +5,17 @@ let playerScore = 0,
   i = 0,
   results = document.querySelector(".displaySection");
 
+if (cookieExistCheck() == 1){
+  playerScore = cookieSetVar("playerScore=")
+  computerScore = cookieSetVar("computerScore=")
+}
+else 
+{
+  cookieUpdate("playerScore", playerScore);
+  cookieUpdate("computerScore", computerScore);
+}
+
+
 // Generate computer turn
 computerPlay = () => {
   num = Math.floor(Math.random() * 3);
@@ -13,6 +24,33 @@ computerPlay = () => {
   return computerSelection;
 };
 
+//Cookies Functions
+
+//Check Cookie exists
+function cookieExistCheck(){
+  if (document.cookie.split(';').some((item) => item.trim().startsWith('playerScore='))) {
+  return 1;
+  }
+  else {
+    return 0;
+  }
+  }
+
+//Set Var to Cookie
+function cookieSetVar(varname) {
+    x = document.cookie
+    .split('; ')
+    .find(row => row.startsWith(varname))
+    .split('=')[1];
+    console.log(varname, x);
+    return x;
+}
+
+//Update Cookies
+function cookieUpdate(cookieVarName, cookieVarData) {
+  document.cookie = cookieVarName + "=" + cookieVarData + ";SameSite=Strict";
+  return null;   // The function updates the score cookies
+}
 // Function to play a single round and compare selections to determine a winner for the round
 // Bonus feature: added rules to change the color of the button based on ruleset: If a tie, button goes yellow, if not it goes green for player selection and red for computer selection.
 
@@ -89,6 +127,9 @@ playRound = (playerSelection, computerSelection) => {
       );
     }
   }
+  cookieUpdate("playerScore", playerScore);
+  cookieUpdate("computerScore", computerScore);
+ //console.log(document.cookie);
 };
 
 // Function to play 5 rounds, add up scores and display the winner at the end.
