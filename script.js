@@ -5,9 +5,15 @@ let playerScore = 0,
   i = 0,
   results = document.querySelector(".displaySection");
 
-playerScore = cookieSetVar("playerScore=")
-computerScore = cookieSetVar("computerScore=")
-
+if (cookieExistCheck() == 1){
+  playerScore = cookieSetVar("playerScore=")
+  computerScore = cookieSetVar("computerScore=")
+}
+else 
+{
+  cookieUpdate("playerScore", playerScore);
+  cookieUpdate("computerScore", computerScore);
+}
 
 
 // Generate computer turn
@@ -19,6 +25,16 @@ computerPlay = () => {
 };
 
 //Cookies Functions
+
+//Check Cookie exists
+function cookieExistCheck(){
+  if (document.cookie.split(';').some((item) => item.trim().startsWith('playerScore='))) {
+  return 1;
+  }
+  else {
+    return 0;
+  }
+  }
 
 //Set Var to Cookie
 function cookieSetVar(varname) {
