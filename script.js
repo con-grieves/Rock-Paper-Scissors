@@ -48,7 +48,7 @@ function cookieSetVar(varname) {
 
 //Update Cookies
 function cookieUpdate(cookieVarName, cookieVarData) {
-  document.cookie = cookieVarName + "=" + cookieVarData;
+  document.cookie = cookieVarName + "=" + cookieVarData + ";SameSite=Strict";
   return null;   // The function updates the score cookies
 }
 // Function to play a single round and compare selections to determine a winner for the round
