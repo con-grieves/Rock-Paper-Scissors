@@ -1,12 +1,14 @@
 // Declare global scope variables
-if document.cookie !=null{
-  let x = document.cookie;}
-else{
 let playerScore = 0,
   computerScore = 0,
-  gamePlaying,}
-let i = 0,
+  gamePlaying,
+  i = 0,
   results = document.querySelector(".displaySection");
+
+playerScore = cookieSetVar("playerScore=")
+computerScore = cookieSetVar("computerScore=")
+
+
 
 // Generate computer turn
 computerPlay = () => {
@@ -16,9 +18,21 @@ computerPlay = () => {
   return computerSelection; // Return stores the the value of computerSelection to the caller function. Meaning if we call computerPlay later we get this value.
 };
 
-//Cookies Function
-function cookieUpdate(playerScore, computerScore) {
-  document.cookie = "cplayerScore = $playerScore, ccomputerScore = $computerScore"; 
+//Cookies Functions
+
+//Set Var to Cookie
+function cookieSetVar(varname) {
+    x = document.cookie
+    .split('; ')
+    .find(row => row.startsWith(varname))
+    .split('=')[1];
+    console.log(varname, x);
+    return x;
+}
+
+//Update Cookies
+function cookieUpdate(cookieVarName, cookieVarData) {
+  document.cookie = cookieVarName + "=" + cookieVarData;
   return null;   // The function updates the score cookies
 }
 // Function to play a single round and compare selections to determine a winner for the round
@@ -95,7 +109,9 @@ playRound = (playerSelection, computerSelection) => {
       );
     }
   }
-  cookieUpdate(playerScore, computerScore)
+  cookieUpdate("playerScore", playerScore);
+  cookieUpdate("computerScore", computerScore);
+ //console.log(document.cookie);
 };
 
 // Function to play 5 rounds, add up scores and display the winner at the end.
