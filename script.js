@@ -27,7 +27,7 @@ computerPlay = () => {
   options = ["rock", "paper", "scissors"];
   computerSelection = options[num];
   return computerSelection;
-
+}
 //Set Var to Cookie
 function cookieSetVar(varname) {
     x = document.cookie
