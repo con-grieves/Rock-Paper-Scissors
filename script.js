@@ -1,9 +1,16 @@
 // Declare global scope variables
 let playerScore = 0,
     computerScore = 0,
-    gamePlaying,
+    gamePlaying = true,
     i = 0,
     results = document.querySelector(".displaySection");
+
+// Reset component after winner is announced
+reset = () => {
+    playerScore = 0
+    computerScore = 0
+    // Remove innerHTML from winner anouncement DOM method
+};    
 
 // Generate computer turn
 computerPlay = () => {
@@ -18,6 +25,8 @@ function setScore() {
     document.getElementById("playerScore").innerHTML = playerScore;
     document.getElementById("computerScore").innerHTML = computerScore;
 }
+
+//
 
 // Function to play a single round and compare selections to determine a winner for the round
 playRound = (playerSelection, computerSelection) => {
@@ -64,7 +73,17 @@ playRound = (playerSelection, computerSelection) => {
         }
     }
     setScore();
+    if (playerScore == 5) {
+        document.getElementById("winner").innerHTML = `You won !`
+        reset();
+    } else if (computerScore == 5) {
+        document.getElementById("winner").innerHTML = `You lost to the computer !`
+        reset();
+    }
 };
+
+// Winner Announcement
+
 
 // ----DOM Section----
 const rock = document.querySelector(".btn_rock");
