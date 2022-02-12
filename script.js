@@ -9,7 +9,8 @@ let playerScore = 0,
 reset = () => {
     playerScore = 0
     computerScore = 0
-    // Remove innerHTML from winner anouncement DOM method
+    document.getElementById("playerScore").innerHTML = '';
+    document.getElementById("computerScore").innerHTML = '';
 };    
 
 // Generate computer turn
