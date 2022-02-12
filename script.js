@@ -9,8 +9,6 @@ let playerScore = 0,
 reset = () => {
     playerScore = 0
     computerScore = 0
-    document.getElementById("playerScore").innerHTML = '';
-    document.getElementById("computerScore").innerHTML = '';
 };    
 
 // Generate computer turn
@@ -26,8 +24,6 @@ function setScore() {
     document.getElementById("playerScore").innerHTML = playerScore;
     document.getElementById("computerScore").innerHTML = computerScore;
 }
-
-//
 
 // Function to play a single round and compare selections to determine a winner for the round
 playRound = (playerSelection, computerSelection) => {
